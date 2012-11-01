@@ -1,0 +1,13 @@
+
+***********************************************************
+How to run semantic processing after parsing the text file
+***********************************************************
+
+# Run semantic analysis program
+# If big file then break into smaller ones, then run
+python semantic-post-processing.py /state/partition1/home/doan/scratch2/doan/PLoSOne/PlosOne-Extra-Analys/xaa.parse
+
+
+After that run scripts in sem-pipe.sh
+
+
