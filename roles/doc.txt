@@ -1,0 +1,305 @@
+A system for mapping subcat frames to Propbank roles
+====================================================
+
+In the Biocaster project we are using the RASP (Robust
+Accurate Statistical Parsing) system developed in the
+Cambridge University Computer Laboratory and the University
+of Sussex Department of Informatics. The RASP home page
+is http://www.informatics.susx.ac.uk/research/nlp/rasp/project.html .
+
+As a further step to parsing, we are using a system that
+extracts subcategorization frames (SCFs) for verbs. Briefly,
+an SCF is a the syntactic structure of the verb's argument.
+For example in "He reads a book" the SCF is "NP" because
+the argument is a noun phrase. For further reading see
+Briscoe and Carroll (1997).
+
+The Propbank database (http://www.cs.rochester.edu/~gildea/PropBank/)
+contains, for each verb and sense, the thematic role of the arguments.
+For example, for the verb 'affect' we have the roles:
+
+Roleset confirm.01 "confirm, attest the truth of a proposition":
+  Arg: 'Arg0' Role 'confirmer'
+  Arg: 'Arg1' Role 'thing confirmed, statement or proposition'
+  Arg: 'Arg2' Role 'benefactive, hearer'
+
+which can be realised in a variety of syntactic structures:
+
+ - Authorities were still working to confirm if the outbreak of the virus
+   is of the deadly strain
+
+   Arg0: 'Authorities'
+   Arg1: 'the outbreak of the virus is of the deadly strain'
+
+ - The Canadian government confirmed a case of mad-cow disease
+
+   Arg0: 'The Canadian government'
+   Arg1: 'a case of mad-cow disease'
+
+ - All three previous outbreaks were confirmed as H5N1
+
+   Arg0 does not exist
+   Arg1: 'All three previous outbreaks are H5N1'
+
+Components:
+===========
+
+The components of the mapping system are:
+
+ - a script for running the RASP parser on a formatted text input
+ - a SCF -> Propbank mapping file
+ - a script for adding the role information based on the map file
+
+Below we describe:
+
+ 1. Preparing data for the parser and parsing
+ 2. The structure of the mapping file
+ 3. Adding the role information
+ 4. Adding new mapping schemes
+
+1. Preparing data for the parser and parsing
+--------------------------------------------
+
+The parse script reads an XML file. The structure of the
+file is as shown in the example below:
+
+<text id="1">
+<raw>
+Boy dies
+</raw>
+</text>
+
+The raw text may contain more than one sentence.
+
+-- Running the parser
+
+ parse.pl <input file> <output file>
+
+-- Parser output
+
+ The output file contains additional information for
+ each <text> element:
+
+ A token list:
+
+ tag: POS tag according to the CLAWS2 tagset
+  
+<tokens id='1'>
+ <tok id='1.1' tag='NP1'>Boy</tok>
+ <tok id='1.2' tag='VVZ'>die+s</tok>
+</tokens>
+
+ SCF entries:
+
+ target : the verb reported
+ slot   : an argument
+             SLTL  : subject
+             OLT1L : first object
+             OLT2L : second object, etc.
+ the 'id' attribute refers to the token ID
+
+<lex id='1'>
+<scf id='1' verb='die' class='22' label='NONE'>
+ <target id='1.2'>die+s</target>
+ <slot name='SLTL' id='1.1'>Boy</slot>
+</scf>
+</lex>
+
+  The slots are the head words of the respective arguments.
+
+  If the raw text contains several sentences, each of the sentence
+  will have its own <token> and <lex> data.
+
+2. The structure of the mapping file
+------------------------------------
+
+The mapping file is also in XML format, the mapping
+information for each verb is contained in the
+<verb-map> element. 
+
+A few regular expressions are defined as entities in the
+beginning of the file as a crude way of modelling semantic
+classes that affect the role assignment in some cases.
+
+<!ENTITY lexicon "bio-lex.xml">
+<!ENTITY illness "disease|virus|flu|infection">
+<!ENTITY outbreak "outbreak">
+<!ENTITY time "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|yesterday|today|tomorrow">
+
+These entities can be used to replace commonly used text. Generally
+in XML, &<name>; is substituted by the text of entity <name>. For
+example
+
+  &lexicon;
+
+will be automatically replaced by
+
+  bio-lex.xml  .
+
+We will see below how an entity is being used.
+
+
+Here is an annotated example:
+
+# mapping for the verb 'affect'
+
+<verb-map verb='affect'>
+
+ # for the SCF with code '24' which is 'NP' (transitive)
+
+ <scf scf='24' label='NP'>
+
+  # we map to this role set, the corresponding sense
+  # is specified in propban
+
+  <roleset name='affect.01' sense='have an effect on'>
+
+   # There can be several ways of mapping the syntactic
+   # arguments to semantic roles, depending on the semantic
+   # properties of the arguments. Usually there is only one way.
+
+   <mapping>
+
+    # a condition on the mapping. Here, we want to assign
+    # the role of 'instrument' to the subject if it is a virus
+    # or a disease as in
+    #   '10 people were affected by flu'
+    # as the illness is the affectant
+
+    <cond slot='SLTL' text='/&illness;/'/>
+
+    <map slot='SLTL' arg='Arg2' role='instrument'/>
+    <map slot='OLT1L' arg='Arg1' role='thing affected'/>
+   </mapping>
+   <mapping>
+
+    # if the condition on the previous mapping is not matched
+    # the role assignment follows the usual scheme of
+    # assigning the subject to the Arg0 role.
+
+    <map slot='SLTL' arg='Arg0' role='thing affecting--animate only!'/>
+    <map slot='OLT1L' arg='Arg1' role='thing affected'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='49' label='NP_PP'>
+
+  # this SCF appears in sentences like
+  #  'EU countries have now been affected by bird flu'
+  # in which all the roles appear
+
+  <roleset name='affect.01' sense='have an effect on'>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='thing affecting--animate only!'/>
+    <map slot='OLT1L' arg='Arg1' role='thing affected'/>
+    <map slot='OLT2L' arg='Arg2' role='instrument'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+
+The 'slot' attribute may contain several slots, for example
+
+  slot='OLT1L of OLT2L'
+
+will create a string where the two arguments are replaced with
+the corresponding head words.
+
+  
+3. Adding the role information
+------------------------------
+
+  roles.pl -i <input file> -o <output file> -m <map file>
+
+  This script adds the roles in a <roles> element.
+
+  For example, for the input sentence
+
+    "About 400,000 poultry at South Korean farms were infected by bird flu."
+
+  We have the SCF information:
+
+   <scf id='1' verb='infect' class='49' label='NP_PP'>
+    <target id='16.16'>infect+ed</target>
+    <slot name='OLT1L' id='16.10'>poultry</slot>
+    <slot name='OLT2L' id='16.19'>flu</slot>
+    <slot name='OLT2L.prep' id='16.17'>by</slot>
+   </scf>
+
+  The relevant mapping scheme is:
+
+   <scf scf='*' label='NP_PP'>
+    <roleset name='infect.01' sense='cause something to have an infection'>
+     <mapping>
+      <cond slot='OLT2L.prep' text='/^(with|by)$/'/>
+      <map slot='SLTL' arg='Arg0' role='causer of infection, but not germ'/>
+      <map slot='OLT1L' arg='Arg1' role='thing becoming infected'/>
+      <map slot='OLT2L' arg='Arg2' role='infectant, germ'/>
+     </mapping>
+     <mapping>
+      <cond slot='SLTL' text='/&illness;/'/>
+      <map slot='SLTL' arg='Arg2' role='infectant, germ'/>
+      <map slot='OLT1L' arg='Arg1' role='thing becoming infected'/>
+      <map slot='OLT2L.prep OLT2L' arg='Argm' role='unknown'/>
+     </mapping>
+     <mapping>
+      <map slot='SLTL' arg='Arg0' role='causer of infection, but not germ'/>
+      <map slot='OLT1L' arg='Arg1' role='thing becoming infected'/>
+      <map slot='OLT2L.prep OLT2L' arg='Argm' role='unknown'/>
+     </mapping>
+    </roleset>
+   </scf>
+
+  Here the preposition in slot OLT2L.prep is 'by', therefore the
+  condition in the first <mapping> element is met. We get the
+  role information:
+
+   <roleset name='infect.01'
+    sense='cause something to have an infection' scf_id='1'>
+    <role role='thing becoming infected' tok='16.10'>
+      400,000 poultry at South Korean farm+s
+    </role>
+    <role role='infectant, germ' tok='16.19'>bird flu</role>
+   </roleset>
+
+  While the argument slots contained the head words 'poultry'
+  and 'flu', the role information includes the full noun phrase
+  headed by these nouns.
+
+
+4. Adding new mapping schemes
+-----------------------------
+
+In order to add a new mapping scheme one needs to consult
+the propbank role sets for the verb in question. The role
+sets of a verb appear in
+
+  http://verbs.colorado.edu/framesets/<verb>-v.html
+
+with examples accessible in
+
+  http://www.cs.rochester.edu/~gildea/PropBank/Sort/
+
+The SCF information already appears in the parser output .
+
+As we saw in the example of the verb 'affect', the correspondence
+between syntactic and semantic roles is not always straightforward.
+In addition, some SCFs may be a result of parsing errors. It is
+important to note these errors and discuss their implications on
+the Biocaster system, we may be able to compensate consistent
+parse errors by a suitable role assignment.
+
+Consider also adding regular expressions to the beginning of
+the file and whether this mechanism needs to be more sophisticated.
+
+References:
+===========
+Briscoe, E. and J. Carroll (1997)
+`Automatic extraction of subcategorization from corpora'.
+In Proceedings of the 5th ACL Conference on Applied Natural
+Language Processing, Washington, DC. 356-363.
+
+Contact:
+========
+Contact Yuval Krymolowski, yuvalkry@gmail.com,
+for further questions

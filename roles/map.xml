@@ -1,0 +1,1369 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE top
+[
+<!ENTITY lexicon "bio-lex.xml">
+<!ENTITY illness "disease|H5N1|BSE|CJD|HIV|virus|flu|infection">
+<!ENTITY outbreak "outbreak|spread">
+<!ENTITY time "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|yesterday|today|tomorrow">
+]
+>
+<top>
+<verb-map verb='affect'>
+ <scf scf='*' label='NP'>
+  <roleset name='affect.01' sense='have an effect on'>
+   <mapping>
+    <example></example>
+    <cond slot='SLTL' text='/&illness;/'/>
+    <map slot='SLTL' arg='Arg2' role='instrument'/>
+    <map slot='OLT1L' arg='Arg1' role='thing affected'/>
+   </mapping>
+   <mapping>
+    <example></example>
+    <map slot='SLTL' arg='Arg0' role='thing affecting--animate only!'/>
+    <map slot='OLT1L' arg='Arg1' role='thing affected'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='affect.01' sense='have an effect on'>
+   <mapping>
+    <example></example>
+    <map slot='SLTL' arg='Arg0' role='thing affecting--animate only!'/>
+    <map slot='OLT1L' arg='Arg1' role='thing affected'/>
+    <map slot='OLT2L' arg='Arg2' role='instrument'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='appear'>
+ <scf scf='*' label='AP'>
+  <roleset name='appear.02' sense='seem'>
+   <mapping>
+    <example>No people appear infected</example>
+    <map slot='SLTL' arg='Arg1' role='thing seeming'/>
+    <map slot='OLT1L' arg='Arg3bc' role='seeming like what?'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='VPINF'>
+  <roleset name='appear.02' sense='seem'>
+   <mapping>
+    <example>it appeared to amount to a suspension of the law</example>
+    <example>The protein's long tail appears to be its weak point.</example>
+    <example>the virus appeared to be spreading fast</example>
+    <map slot='SLTL' arg='Arg1' role='thing seeming'/>
+    <map slot='OLT1L' arg='Arg3bc' role='seeming like what?'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='default'>
+  <roleset name='appear.01' sense='come to be visible'>
+   <mapping>
+    <example></example>
+    <map slot='SLTL' arg='Arg1' role='thing seeming'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='blame'>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='blame.01' sense='assign culpability'>
+   <mapping>
+    <example>Poor sanitation blamed for diarrhea outbreak</example>
+    <example>A senior health official has blamed poor sanitation for spreading the diarrhea</example>
+    <cond slot='OLT2L.prep' text='for'/>
+    <map slot='SLTL' arg='Arg0' role='blamer'/>
+    <map slot='OLT1L' arg='Arg1' role='entity blamed'/>
+    <map slot='OLT2L' arg='Arg2' role='blamed for what?'/>
+   </mapping>
+   <mapping>
+    <example>One death is blamed on the outbreak</example>
+    <cond slot='OLT2L.prep' text='/^(on|upon)$/'/>
+    <map slot='SLTL' arg='Arg0' role='blamer'/>
+    <map slot='OLT1L' arg='Arg2' role='blamed for what?'/>
+    <map slot='OLT2L' arg='Arg1' role='entity blamed'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='blamer'/>
+    <map slot='OLT1L' arg='Arg1' role='entity blamed'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP'>
+  <roleset name='blame.01' sense='assign culpability'>
+   <mapping>
+    <example>One death blamed on outbreak</example>
+    <cond slot='OLT2L.prep' text='/^(on|upon)$/'/>
+    <map slot='SLTL' arg='Arg2' role='blamed for what?'/>
+    <map slot='OLT1L' arg='Arg1' role='entity blamed'/>
+   </mapping>
+   <mapping>
+    <example>Outbreak blamed for death</example>
+    <cond slot='OLT2L.prep' text='for'/>
+    <map slot='SLTL' arg='Arg1' role='entity blamed'/>
+    <map slot='OLT1L' arg='Arg2' role='blamed for what?'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg1' role='entity blamed'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='carry'>
+ <scf scf='*' label='NP'>
+  <roleset name='carry.01' sense='bring with, have'>
+   <mapping>
+    <example>dead birds carried the H5N1 virus</example>
+    <map slot='SLTL' arg='Arg0' role='carrier'/>
+    <map slot='OLT1L' arg='Arg1bc' role='disease'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='catch'>
+ <scf scf='*' label='NP'>
+  <roleset name='catch.01' sense='get'>
+   <mapping>
+    <example>the most common way for humans to catch bird flu</example>
+    <map slot='SLTL' arg='Arg0' role='receiver'/>
+    <map slot='OLT1L' arg='Arg1' role='thing gotten'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='catch.01' sense='get'>
+   <mapping>
+    <cond slot='OLT2L.prep' text='from'/>
+    <example>to catch the illness from a bird</example>
+    <map slot='SLTL' arg='Arg0' role='receiver'/>
+    <map slot='OLT1L' arg='Arg1' role='thing gotten'/>
+    <map slot='OLT2L' arg='Arg2' role='giver'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='receiver'/>
+    <map slot='OLT1L' arg='Arg1' role='thing gotten'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='cause'>
+ <scf scf='*' label='NP'>
+  <roleset name='cause.01' sense='impelled action'>
+   <mapping>
+    <example>certain strains can cause abdominal cramps</example>
+    <map slot='SLTL' arg='Arg0' role='forcer, causer'/>
+    <map slot='OLT1L' arg='Arg1' role='impelled action'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_AP'>
+  <roleset name='cause.01' sense='impelled action'>
+   <mapping>
+    <example>caused the deaths of at least 164 people worldwide</example>
+    <map slot='SLTL' arg='Arg0' role='forcer, causer'/>
+    <map slot='OLT1L' arg='Arg1' role='impelled action'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='cause.01' sense='impelled action'>
+   <mapping>
+    <example>bird flu outbreak was caused by the highly virulent H5N1 strain</example>
+    <example>alert believed to be caused by fresh spinach</example>
+    <cond slot='OLT2L.prep' text='by'/>
+    <map slot='OLT2L' arg='Arg0' role='forcer, causer'/>
+    <map slot='OLT1L' arg='Arg1' role='impelled action'/>
+   </mapping>
+   <mapping>
+    <example>it can cause blindness if it reaches the eyes.</example>
+    <cond slot='OLT2L.prep' text='/^(if|whether)$/'/>
+    <map slot='SLTL' arg='Arg0' role='forcer, causer'/>
+    <map slot='OLT1L' arg='Arg1' role='impelled action'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='precondition'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='forcer, causer'/>
+    <map slot='OLT1L' arg='Arg1' role='impelled action'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PPOF'>
+  <roleset name='cause.01' sense='impelled action'>
+   <mapping>
+    <example>and caused the deaths of at least 163 people</example>
+    <map slot='SLTL' arg='Arg0' role='forcer, causer'/>
+    <map slot='OLT1L OLT2L.prep OLT2L' arg='Arg1' role='impelled action'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='SINF'>
+  <roleset name='cause.01' sense='impelled action'>
+   <mapping>
+    <map slot='OLT1L' arg='Arg1' role='impelled action'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP'>
+  <roleset name='cause.01' sense='impelled action'>
+   <mapping>
+    <example>Mumps is caused by a virus</example>
+    <cond slot='OLT1L.prep' text='by'/>
+    <map slot='OLT1L' arg='Arg0' role='forcer, causer'/>
+    <map slot='SLTL' arg='Arg1' role='impelled action'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg1' role='impelled action'/>
+    <map slot='OLT1L' arg='Arg0' role='forcer, causer'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='confine'>
+ <scf scf='*' label='NP'>
+  <roleset name='confine.01' sense='confine, restrict'>
+   <mapping>
+    <example>the virus had been confined</example>
+    <map slot='SLTL' arg='Arg0' role='agent, confiner'/>
+    <map slot='OLT1L' arg='Arg1' role='entity confined, restricted'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='confine.01' sense='confine, restrict'>
+   <mapping>
+    <cond slot='OLT2L.prep' text='to'/>
+    <example>the virus had been confined to the farm</example>
+    <map slot='SLTL' arg='Arg0' role='agent, confiner'/>
+    <map slot='OLT1L' arg='Arg1' role='entity confined, restricted'/>
+    <map slot='OLT2L' arg='Arg2' role='confined-to'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='agent, confiner'/>
+    <map slot='OLT1L' arg='Arg1' role='entity confined, restricted'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='confirm'>
+ <scf scf='*' label='NONE'>
+  <roleset name='confirm.01' sense='confirm, attest the truth of a proposition'>
+   <mapping>
+    <example>27-year-old hospitalized since Jan. 13, health officials confirm</example>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP'>
+  <roleset name='confirm.01' sense='confirm, attest the truth of a proposition'>
+   <mapping>
+    <cond slot='OLT1L' text='/&time;/'/>
+    <example></example>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L' arg='ArgM-TMP' role='time'/>
+   </mapping>
+   <mapping>
+    <example>Japan confirms third H5N1 outbreak</example>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='SCOMP'>
+  <roleset name='confirm.01' sense='confirm, attest the truth of a proposition'>
+   <mapping>
+    <example>officials confirmed that a bird-flu virus killed dozens of chickens</example>
+    <example>Laboratory tests confirmed the death was from the O157:H7 strain</example>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_NP'>
+  <roleset name='confirm.01' sense='confirm, attest the truth of a proposition'>
+   <mapping>
+    <example>Indonesia has confirmed two new human cases of bird flu</example>
+    <example>confirming the second such case in Japan this month</example>
+    <comment>Parse error</comment>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L OLT2L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='confirm.01' sense='confirm, attest the truth of a proposition'>
+   <mapping>
+    <cond slot='OLT2L.prep' text='as'/>
+    <example>All three previous outbreaks were confirmed as H5N1</example>
+    <example>146 of the 249 people confirmed as infected with H5N1></example>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L as OLT2L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+   <mapping>
+    <example>Nigeria confirmed the first human death from the H5N1 virus</example>
+    <example>H5NI strain of bird flu was confirmed in Hungary</example>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L OLT2L.prep OLT2L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_SCOMP'>
+  <roleset name='confirm.01' sense='confirm, attest the truth of a proposition'>
+   <mapping>
+    <cond slot='OLT1L' text='/&time;/'/>
+    <example>GM confirmed Friday that it received permission</example>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L' arg='ArgM-TMP' role='time'/>
+    <map slot='OLT2L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L' arg='Arg2' role='benefactive, hearer'/>
+    <map slot='OLT2L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='SINF'>
+  <roleset name='confirm.01' sense='confirm, attest the truth of a proposition'>
+   <mapping>
+    <example>Sixty-three people have been confirmed to have the illness</example>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L to OLT2L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP'>
+  <roleset name='confirm.01' sense='confirm, attest the truth of a proposition'>
+   <mapping>
+    <cond slot='OLT1L.prep' text='/^(if|whether)$/'/>
+    <example>it would take some time to confirm whether the virus is the deadly H5N1 strain</example>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+   <mapping>
+    <example>H5N1 bird flu confirmed in Hungary</example>
+    <map slot='SLTL OLT1L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP_SCOMP'>
+  <roleset name='confirm.01' sense='confirm, attest the truth of a proposition'>
+   <mapping>
+    <example>John confirmed to Mary that he'd been sleeping in a box</example>
+    <map slot='OLT1L' arg='Arg2-to' role='benefactive, hearer'/>
+    <map slot='OLT2L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='VPINF'>
+  <roleset name='confirm.01' sense='confirm, attest the truth of a proposition'>
+   <mapping>
+    <example>The first case was not confirmed to be H5N1</example>
+    <map slot='SLTL' arg='Arg0' role='confirmer'/>
+    <map slot='OLT1L' arg='Arg1' role='thing confirmed, statement or proposition'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='contain'>
+ <scf scf='*' label='NP'>
+  <roleset name='contain.01bc' sense='hold inside/control'>
+   <mapping>
+    <example>to discuss ways to contain the infection</example>
+    <example>FAO recommends Indonesia carry out blanket vaccination to contain bird flu</example>
+    <cond slot='SLTL' text='/&illness;|&outbreak;/'/>
+    <map slot='SLTL' arg='Arg0' role='authority'/>
+    <map slot='OLT1L' arg='Arg1' role='event'/>
+   </mapping>
+   <mapping>
+    <example>have been shown in infected cattle to contain concentrated levels of the BSE agent</example>
+    <map slot='SLTL' arg='Arg0' role='container'/>
+    <map slot='OLT1L' arg='Arg1' role='contents'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='contract'>
+ <scf scf='*' label='NP'>
+  <roleset name='contract.04' sense='get, acquire (as of disease)'>
+   <mapping>
+    <example>farmer has contracted the H5N1 strain of bird flu</example>
+    <map slot='OLT1L' arg='Arg2' role='disease'/>
+    <map slot='SLTL' arg='Arg1' role='sick person, patient'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='contract.04' sense='get, acquire (as of disease)'>
+   <mapping>
+    <example>E. coli thought to have been contracted from contaminated spinach</example>
+    <cond slot='OLT2L.prep' text='from'/>
+    <map slot='OLT1L' arg='Arg2' role='disease'/>
+    <map slot='SLTL' arg='Arg1' role='sick person, patient'/>
+    <map slot='OLT2L' arg='Arg3' role='source of disease'/>
+   </mapping>
+   <mapping>
+    <map slot='OLT1L' arg='Arg2' role='disease'/>
+    <map slot='SLTL' arg='Arg1' role='sick person, patient'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='detect'>
+ <scf scf='*' label='NONE'>
+  <roleset name='detect.01' sense='find, notice'>
+   <mapping>
+    <example>Seoul: Powerful bird flu detected</example>
+    <comment>Passive mistaken for intransitive</comment>
+    <map slot='SLTL' arg='Arg1' role='detected'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP'>
+  <roleset name='detect.01' sense='find, notice'>
+   <mapping>
+    <example>program has now detected seven BSE-infected animals</example>
+    <map slot='SLTL' arg='Arg0' role='detector'/>
+    <map slot='OLT1L' arg='Arg1' role='detected'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='detect.01' sense='find, notice'>
+   <mapping>
+    <example>Nigeria was the first African nation to detect the H5N1 virus in poultry</example>
+    <map slot='SLTL' arg='Arg0' role='detector'/>
+    <map slot='OLT1L' arg='Arg1' role='detected'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='diagnose'>
+ <scf scf='*' label='NP'>
+  <roleset name='diagnose.01' sense='discover a sickness'>
+   <mapping>
+    <example>The doctor diagnosed diabetes</example>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT2L' arg='Arg2' role='illness'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='diagnose.01' sense='discover a sickness'>
+   <mapping>
+    <example>Megi was initially diagnosed with typhoid</example>
+    <cond slot='OLT2L.prep' text='with'/>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L' arg='Arg1' role='patient'/>
+    <map slot='OLT2L' arg='Arg2' role='illness'/>
+   </mapping>
+   <mapping>
+    <example>The doctor diagnosed typhoid in Mary</example>
+    <cond slot='OLT2L.prep' text='in'/>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L' arg='Arg2' role='illness'/>
+    <map slot='OLT2L' arg='Arg1' role='patient'/>
+   </mapping>
+   <mapping>
+    <example>The doctor diagnosed Mary as having...</example>
+    <example>The doctor diagnosed Mary as schizophrenic</example>
+    <cond slot='OLT2L.prep' text='as'/>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L' arg='Arg1' role='patient'/>
+    <map slot='OLT2L' arg='Arg2' role='illness'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L' arg='Arg1' role='patient'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP'>
+  <roleset name='diagnose.01' sense='discover a sickness'>
+   <mapping>
+    <example>diagnosed with typhoid</example>
+    <cond slot='OLT2L.prep' text='with'/>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L' arg='Arg2' role='illness'/>
+   </mapping>
+   <mapping>
+    <example>diagnosed in Mary</example>
+    <cond slot='OLT2L.prep' text='in'/>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L' arg='Arg1' role='patient'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='occur'>
+ <scf scf='*' label='NONE'>
+  <roleset name='occur.01' sense='occur, take place'>
+   <mapping>
+    <example>96 percent of the deaths would occur in the developing world.</example>
+    <map slot='SLTL' arg='Arg1' role='event'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP'>
+  <roleset name='occur.01' sense='occur, take place'>
+   <mapping>
+    <example>The outbreak occurred at a chicken farm</example>
+    <map slot='SLTL' arg='Arg1' role='event'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='die'>
+ <scf scf='*' label='NONE'>
+  <roleset name='die.01' sense='sterben'>
+   <mapping>
+    <example>The 22-year-old died after feathering</example>
+    <map slot='SLTL' arg='Arg1' role='the deceased'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_NP'>
+  <roleset name='die.01' sense='sterben'>
+   <mapping>
+    <example>elderly woman who died Sept. 13 after</example>
+    <comment>Parse error</comment>
+    <map slot='SLTL' arg='Arg1' role='the deceased'/>
+    <map slot='OLT1L OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='die.01' sense='sterben'>
+   <mapping>
+    <example>About 2,500 turkeys died in the initial outbreak</example>
+    <comment>Parse error</comment>
+    <map slot='OLT1L' arg='Arg1' role='the deceased'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP*'>
+  <roleset name='die.01' sense='sterben'>
+   <mapping>
+    <cond slot='OLT1L.prep' text='/^(of|from)$/'/>
+    <example>Indonesian teen dies from bird flu</example>
+    <example>Indonesian woman dies of bird flu</example>
+    <map slot='SLTL' arg='Arg1' role='the deceased'/>
+    <map slot='OLT1L' arg='Arg3bc' role='reason'/>
+   </mapping>
+   <mapping>
+    <example>eight family members died in the outbreak</example>
+    <map slot='SLTL' arg='Arg1' role='the deceased'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='SCOMP'>
+  <roleset name='die.01' sense='sterben'>
+   <mapping>
+    <example>Six Indonesians have died in 2007 from bird flu, which is endemic</example>
+    <comment>Parse error</comment>
+    <map slot='SLTL' arg='Arg1' role='the deceased'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='emerge'>
+ <scf scf='*' label='default'>
+  <roleset name='emerge.01' sense='exit'>
+   <mapping>
+    <example>The virus that first struck the delta region in late 2003 re-emerged last month</example>
+    <map slot='SLTL' arg='Arg0' role='thing exiting'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='expose'>
+ <scf scf='*' label='NP'>
+  <roleset name='expose.01bc' sense='cause contact with a risk factor'>
+   <mapping>
+    <example>figure out how many people may have been exposed</example>
+    <map slot='SLTL' arg='Arg0' role='exposer'/>
+    <map slot='OLT1L' arg='Arg1bc' role='entity exposed'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='expose.01bc' sense='cause contact with a risk factor'>
+   <mapping>
+    <example>Four of the infected people had been exposed to chickens</example>
+    <cond slot='OLT2L.prep' text='to'/>
+    <map slot='SLTL' arg='Arg0' role='exposer'/>
+    <map slot='OLT1L' arg='Arg1bc' role='entity exposed'/>
+    <map slot='OLT2L' arg='Arg2bc' role='risk factor'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='exposer'/>
+    <map slot='OLT1L' arg='Arg1bc' role='entity exposed'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='hospitalize'>
+ <scf scf='*' label='NONE'>
+  <roleset name='hospitalize.01' sense='be in or send to (the) hospital'>
+   <mapping>
+    <example>2nd victim hospitalized</example>
+    <comment>Passive mistaken for intransitive</comment>
+    <map slot='SLTL' arg='Arg1' role='injured/ill entity'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP'>
+  <roleset name='hospitalize.01' sense='be in or send to (the) hospital'>
+   <mapping>
+    <example>11 to 15 people have been hospitalized</example>
+    <map slot='SLTL' arg='Arg0' role='sender'/>
+    <map slot='OLT1L' arg='Arg1' role='injured/ill entity'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='hospitalize.01' sense='be in or send to (the) hospital'>
+   <mapping>
+    <example>a woman was hospitalized with kidney failure</example>
+    <cond slot='OLT2L.prep' text='with'/>
+    <map slot='SLTL' arg='Arg0' role='sender'/>
+    <map slot='OLT1L' arg='Arg1' role='injured/ill entity'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='symptoms'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='sender'/>
+    <map slot='OLT1L' arg='Arg1' role='injured/ill entity'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP*'>
+  <roleset name='hospitalize.01' sense='be in or send to (the) hospital'>
+   <mapping>
+    <example>passengers hospitalized with flu-like symptoms</example>
+    <cond slot='OLT1L.prep' text='with'/>
+    <map slot='SLTL' arg='Arg1' role='injured/ill entity'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='symptoms'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg1' role='injured/ill entity'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='identify'>
+ <scf scf='*' label='NP'>
+  <roleset name='identify.01' sense='label, call'>
+   <mapping>
+    <example>to identify the source of her infection</example>
+    <map slot='SLTL' arg='Arg0' role='caller'/>
+    <map slot='OLT1L' arg='Arg1' role='item being labelled'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_AP'>
+  <roleset name='identify.01' sense='label, call'>
+   <mapping>
+    <example>If a food is identified as the source of illness</example>
+    <map slot='SLTL' arg='Arg0' role='caller'/>
+    <map slot='OLT1L' arg='Arg1' role='item being labelled'/>
+    <map slot='OLT2L' arg='Arg2' role='attribute'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='SCOMP'>
+  <roleset name='identify.01' sense='label, call'>
+   <mapping>
+    <example>to identify where this virus is hiding</example>
+    <map slot='SLTL' arg='Arg0' role='caller'/>
+    <map slot='OLT1L' arg='Arg1' role='item being labelled'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='infect'>
+ <scf scf='*' label='NP'>
+  <roleset name='infect.01' sense='cause something to have an infection'>
+   <mapping>
+    <cond slot='SLTL' text='/&illness;/'/>
+    <map slot='OLT1L' arg='Arg1' role='thing becoming infected'/>
+    <map slot='SLTL' arg='Arg2' role='infectant, germ'/>
+   </mapping>
+   <mapping>
+    <map slot='OLT1L' arg='Arg1' role='thing becoming infected'/>
+    <map slot='SLTL' arg='Arg0' role='causer of infection, but not germ'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_NP'>
+  <roleset name='infect.01' sense='cause something to have an infection'>
+   <mapping>
+    <example>it has infected 263 people</example>
+    <comment>The parser sometimes splits the count and the noun into
+      two slots as in "it has infected 263 people"          
+      where OLT1L is '263' and OLT2L is 'people'
+    </comment>
+    <cond slot='OLT1L' text='/^[0-9]+$/'/>
+    <map slot='SLTL' arg='Arg2' role='infectant, germ'/>
+    <map slot='OLT1L OLT2L' arg='Arg1' role='thing becoming infected'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='causer of infection, but not germ'/>
+    <map slot='OLT1L OLT2L' arg='Arg1' role='thing becoming infected'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='infect.01' sense='cause something to have an infection'>
+   <mapping>
+    <cond slot='OLT2L.prep' text='/^(with|by)$/'/>
+    <map slot='SLTL' arg='Arg0' role='causer of infection, but not germ'/>
+    <map slot='OLT1L' arg='Arg1' role='thing becoming infected'/>
+    <map slot='OLT2L' arg='Arg2' role='infectant, germ'/>
+   </mapping>
+   <mapping>
+    <cond slot='SLTL' text='/&illness;/'/>
+    <map slot='SLTL' arg='Arg2' role='infectant, germ'/>
+    <map slot='OLT1L' arg='Arg1' role='thing becoming infected'/>
+    <map slot='OLT2L.prep OLT2L' arg='Argm' role='unknown'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='causer of infection, but not germ'/>
+    <map slot='OLT1L' arg='Arg1' role='thing becoming infected'/>
+    <map slot='OLT2L.prep OLT2L' arg='Argm' role='unknown'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP_PP'>
+  <roleset name='infect.01' sense='cause something to have an infection'>
+   <mapping>
+    <cond slot='OLT1L.prep' text='/^(with|by)$/'/>
+    <map slot='SLTL' arg='Arg1' role='thing becoming infected'/>
+    <map slot='OLT1L' arg='Arg2' role='infectant, germ'/>
+    <map slot='OLT2L.prep OLT2L' arg='Argm' role='unknown'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg1' role='thing becoming infected'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM1' role='unknown'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM2' role='unknown'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='default'>
+  <roleset name='infect.01' sense='cause something to have an infection'>
+   <mapping>
+    <cond slot='SLTL' text='/&illness;/'/>
+    <map slot='OLT1L' arg='Arg1' role='thing becoming infected'/>
+    <map slot='SLTL' arg='Arg2' role='infectant, germ'/>
+   </mapping>
+   <mapping>
+    <map slot='OLT1L' arg='Arg1' role='thing becoming infected'/>
+    <map slot='SLTL' arg='Arg0' role='causer of infection, but not germ'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='kill'>
+ <scf scf='*' label='NP*'>
+  <roleset name='kill.01' sense='cause to die'>
+   <mapping>
+    <example>possibly killing millions</example>
+    <example>Angolan cholera outbreak kills 2,760</example>
+    <map slot='SLTL' arg='Arg0' role='killer'/>
+    <map slot='OLT1L' arg='Arg1' role='corpse'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP'>
+  <roleset name='kill.01' sense='cause to die'>
+   <mapping>
+    <cond slot='OLT1L.prep' text='than'/>
+    <example>killing more than 150</example>
+    <map slot='SLTL' arg='Arg0' role='killer'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+   <mapping>
+    <example>taking the number of people killed by bird flu in the country to 61</example>
+    <comment>Parse error</comment>
+    <map slot='SLTL' arg='Arg0' role='killer'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NONE'>
+  <roleset name='kill.01' sense='cause to die'>
+   <mapping>
+    <example>A totally new approach to a virus that can kil</example>
+    <map slot='SLTL' arg='Arg0' role='killer'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_NP'>
+  <roleset name='kill.01' sense='cause to die'>
+   <mapping>
+    <example>hit New Zealand in 1918 and killed 8600 people</example>
+    <comment>Parse error</comment>
+    <map slot='SLTL' arg='Arg0' role='killer'/>
+    <map slot='OLT1L OLT2L' arg='Arg1' role='corpse'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='kill.01' sense='cause to die'>
+   <mapping>
+    <cond slot='OLT1L.prep' text='than'/>
+    <example>killing more than 150 people</example>
+    <comment>Parse error - 'more' assigned to the NP slot</comment>
+    <map slot='SLTL' arg='Arg0' role='killer'/>
+    <map slot='OLT2L' arg='Arg1' role='corpse'/>
+   </mapping>
+   <mapping>
+    <example>killed in preventative measures</example>
+    <map slot='SLTL' arg='Arg0' role='killer'/>
+    <map slot='OLT1L' arg='Arg1' role='corpse'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PPOF'>
+  <roleset name='kill.01' sense='cause to die'>
+   <mapping>
+    <example>fever and tuberculosis kill thousands of Indonesians</example>
+    <map slot='SLTL' arg='Arg0' role='killer'/>
+    <map slot='OLT1L of OLT2L' arg='Arg1' role='corpse'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='report'>
+ <scf scf='*' label='NONE'>
+  <roleset name='report.01' sense='report, tell'>
+   <mapping>
+    <cond slot='SLTL' text='/&illness;|&outbreak;/'/>
+    <example>outbreaks were being quickly reported</example>
+    <comment>Parse error</comment>
+    <map slot='SLTL' arg='Arg1' role='thing reported'/>
+   </mapping>
+   <mapping>
+    <example>The Associated Press reported.</example>
+    <map slot='SLTL' arg='Arg0' role='Reporter'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP'>
+  <roleset name='report.01' sense='report, tell'>
+   <mapping>
+    <example>China reports human bird flu case</example>
+    <map slot='SLTL' arg='Arg0' role='Reporter'/>
+    <map slot='OLT1L' arg='Arg1' role='thing reported'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_AP'>
+  <roleset name='report.01' sense='report, tell'>
+   <mapping>
+    <cond slot='OLT2L' text='consistent'/>
+    <example>40 people have reported symptoms consistent with E. coli</example>
+    <map slot='SLTL' arg='Arg0' role='Reporter'/>
+    <map slot='OLT1L' arg='Arg1' role='thing reported'/>
+    <map slot='OLT2L' arg='Arg3bc' role='attribute of thing'/>
+   </mapping>
+   <mapping>
+    <example>reported a total of 22 human cases of bird flu since 2003, and with the world's largest poultry population and millions of backyard birds roaming free</example>
+    <comment>Parse error</comment>
+    <map slot='SLTL' arg='Arg0' role='Reporter'/>
+    <map slot='OLT1L' arg='Arg1' role='thing reported'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_NP'>
+  <roleset name='report.01' sense='report, tell'>
+   <mapping>
+    <example>Indonesia reports two more human bird flu cases</example>
+    <comment>Parse error</comment>
+    <map slot='SLTL' arg='Arg0' role='Reporter'/>
+    <map slot='OLT1L OLT2L' arg='Arg1' role='thing reported'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='report.01' sense='report, tell'>
+   <mapping>
+    <example>China last reported a human case of bird flu in July</example>
+    <map slot='SLTL' arg='Arg0' role='Reporter'/>
+    <map slot='OLT1L' arg='Arg1' role='thing reported'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='SCOMP'>
+  <roleset name='report.01' sense='report, tell'>
+   <mapping>
+    <example>The Associated Press has reported that those people became ill</example>
+    <map slot='SLTL' arg='Arg0' role='Reporter'/>
+    <map slot='OLT1L' arg='Arg1' role='thing reported'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='sicken'>
+ <scf scf='*' label='NP*'>
+  <roleset name='sicken.01' sense='make feel disgust'>
+   <mapping>
+    <example>Norovirus sickens hundreds</example>
+    <map slot='SLTL' arg='Arg0' role='cause, reason for feeling'/>
+    <map slot='OLT1L' arg='Arg1' role='experiencer, entity feeling sick'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='sicken.01' sense='make feel disgust'>
+   <mapping>
+    <cond slot='OLT2L.prep' text='by'/>
+    <example>resident was sickened by the same strain of the bacteria</example>
+    <map slot='OLT1L' arg='Arg1' role='experiencer, entity feeling sick'/>
+    <map slot='OLT2L' arg='Arg0' role='cause, reason for feeling'/>
+   </mapping>
+   <mapping>
+    <example>Norovirus sickens hundreds aboard QE2</example>
+    <map slot='SLTL' arg='Arg0' role='cause, reason for feeling'/>
+    <map slot='OLT1L' arg='Arg1' role='experiencer, entity feeling sick'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='VPINF'>
+  <roleset name='sicken.01' sense='make feel disgust'>
+   <mapping>
+    <example>officials are still interviewing those sickened to determine exactly what they ate</example>
+    <comment>Parse error</comment>
+    <map slot='SLTL' arg='Arg1' role='experiencer, entity feeling sick'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='spread'>
+ <scf scf='*' label='NONE'>
+  <roleset name='spread.03' sense='cause to be widely located or distributed'>
+   <mapping>
+    <example>they spent $1.6 billion on preventing the disease spreading</example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP'>
+  <roleset name='spread.03' sense='cause to be widely located or distributed'>
+   <mapping>
+    <example>Wild Birds Could Spread Avian Flu</example>
+    <map slot='SLTL' arg='Arg0' role='distributor, agent'/>
+    <map slot='OLT1L' arg='Arg1' role='things distributed'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_AP'>
+  <roleset name='spread.03' sense='cause to be widely located or distributed'>
+   <mapping>
+    <example>Wild Birds Could Spread Avian Flu worldwide</example>
+    <map slot='SLTL' arg='Arg0' role='distributor, agent'/>
+    <map slot='OLT1L' arg='Arg1' role='things distributed'/>
+    <map slot='OLT2L' arg='Arg4bc' role='manner'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='spread.03' sense='cause to be widely located or distributed'>
+   <mapping>
+    <cond slot='OLT2L.prep' text='/^(across|among|between|over)$/'/>
+    <example>Birds spread the virus among poultry</example>
+    <map slot='SLTL' arg='Arg0' role='distributor, agent'/>
+    <map slot='OLT1L' arg='Arg1' role='things distributed'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='population'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT2L.prep' text='in'/>
+    <example>Birds spread the virus in the country</example>
+    <map slot='SLTL' arg='Arg0' role='distributor, agent'/>
+    <map slot='OLT1L' arg='Arg1' role='things distributed'/>
+    <map slot='OLT2L' arg='ArgM' role='location or time or population'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT2L.prep' text='by'/>
+    <example>Birds spread the virus by human-to-human contact.</example>
+    <map slot='SLTL' arg='Arg0' role='distributor, agent'/>
+    <map slot='OLT1L' arg='Arg1' role='things distributed'/>
+    <map slot='OLT2L' arg='ArgM' role='instrument'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT2L.prep' text='to'/>
+    <example>Birds spread the virus to the south</example>
+    <map slot='SLTL' arg='Arg0' role='distributor, agent'/>
+    <map slot='OLT1L' arg='Arg1' role='things distributed'/>
+    <map slot='OLT2L' arg='ArgM' role='diretion or location'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='distributor, agent'/>
+    <map slot='OLT1L' arg='Arg1' role='things distributed'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP_PP'>
+  <roleset name='spread.03' sense='cause to be widely located or distributed'>
+   <mapping>
+    <cond slot='OLT1L.prep' text='/^(across|among|between|over)$/'/>
+    <example></example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+    <map slot='OLT1L' arg='ArgM1' role='population'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM2' role='adjunct'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT1L.prep' text='in'/>
+    <example></example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+    <map slot='OLT1L' arg='ArgM1' role='location or time or population'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM2' role='adjunct'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT1L.prep' text='by'/>
+    <example></example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+    <map slot='OLT1L' arg='ArgM1' role='instrument'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM2' role='adjunct'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT1L.prep' text='to'/>
+    <example></example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+    <map slot='OLT1L' arg='ArgM1' role='diretion or location'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM2' role='adjunct'/>
+   </mapping>
+   <mapping>
+    <example></example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM1' role='adjunct'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM2' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP'>
+  <roleset name='spread.03' sense='cause to be widely located or distributed'>
+   <mapping>
+    <cond slot='OLT1L.prep' text='/^(across|among|between|over)$/'/>
+    <example>a form that could spread easily between people</example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+    <map slot='OLT1L' arg='ArgM' role='population'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT1L.prep' text='in'/>
+    <example>Bird flu reports spreading in Asia</example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+    <map slot='OLT1L' arg='ArgM' role='location or time or population'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT1L.prep' text='by'/>
+    <example>a virus and spread by coughing and sneezing</example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+    <map slot='OLT1L' arg='ArgM' role='instrument'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT1L.prep' text='to'/>
+    <example> official has blamed poor sanitation for spreading the diarrhea outbreak to the north</example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+    <map slot='OLT1L' arg='ArgM' role='diretion or location'/>
+   </mapping>
+   <mapping>
+    <example></example>
+    <map slot='SLTL' arg='Arg1' role='substance'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='strike'>
+ <scf scf='*' label='NP'>
+  <roleset name='strike.01' sense='hit'>
+   <mapping>
+    <example>flu becoming a pandemic that would strike New Zealand</example>
+    <map slot='SLTL' arg='Arg0' role='agent, hitter - animate only!'/>
+    <map slot='OLT1L' arg='Arg1' role='thing hit'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_NP'>
+  <roleset name='strike.01' sense='hit'>
+   <mapping>
+    <example>A pandemic will strike New Zealand</example>
+    <comment>Parse error, 'New' and 'Zealand' in two slots</comment>
+    <map slot='SLTL' arg='Arg0' role='agent, hitter - animate only!'/>
+    <map slot='OLT1L OLT2L' arg='Arg1' role='thing hit'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='strike.01' sense='hit'>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='agent, hitter - animate only!'/>
+    <map slot='OLT1L' arg='Arg1' role='thing hit'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='suffer'>
+ <scf scf='*' label='default'>
+  <roleset name='suffer.01' sense='suffer'>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='entity suffering'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP'>
+  <roleset name='suffer.01' sense='suffer'>
+   <mapping>
+    <example>It is possible some could have been suffering flu already</example>
+    <map slot='SLTL' arg='Arg0' role='entity suffering'/>
+    <map slot='OLT1L' arg='Arg1' role='malady'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='suffer.01' sense='suffer'>
+   <mapping>
+    <example>Japan suffered its first outbreak of H5N1 bird flu in poultry</example>
+    <map slot='SLTL' arg='Arg0' role='entity suffering'/>
+    <map slot='OLT1L' arg='Arg1' role='malady'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP'>
+  <roleset name='suffer.01' sense='suffer'>
+   <mapping>
+    <cond slot='OLT1L.prep' text='from'/>
+    <example>he is unlikely to be suffering from bird flu</example>
+    <map slot='SLTL' arg='Arg0' role='entity suffering'/>
+    <map slot='OLT1L' arg='Arg1' role='malady'/>
+   </mapping>
+   <mapping>
+    <example></example>
+    <map slot='SLTL' arg='Arg0' role='entity suffering'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP_PP'>
+  <roleset name='suffer.01' sense='suffer'>
+   <mapping>
+    <cond slot='OLT1L.prep' text='from'/>
+    <example>No country has suffered from more deaths than this huge Asian country</example>
+    <map slot='SLTL' arg='Arg0' role='entity suffering'/>
+    <map slot='OLT1L' arg='Arg1' role='malady'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT2L.prep' text='from'/>
+    <example></example>
+    <map slot='SLTL' arg='Arg0' role='entity suffering'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+    <map slot='OLT2L' arg='Arg1' role='malady'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='transmit'>
+ <scf scf='*' label='NP'>
+  <roleset name='transmit.01' sense='send (electronically)'>
+   <mapping>
+    <example>close contact can transmit the disease</example>
+    <map slot='SLTL' arg='Arg0' role='sender'/>
+    <map slot='OLT1L' arg='Arg1' role='sent'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='transmit.01' sense='send (electronically)'>
+   <mapping>
+    <example>Cholera is transmitted through contaminated water</example>
+    <cond slot='OLT1L.prep' text='/^(through|by)$/'/>
+    <map slot='SLTL' arg='Arg0' role='sender'/>
+    <map slot='OLT1L' arg='Arg1' role='sent'/>
+    <map slot='OLT2L' arg='Arg3bc' role='means'/>
+   </mapping>
+   <mapping>
+    <example>more easily transmitted between people</example>
+    <example>The H5N1 avian influenza virus is not transmitted to humans </example>
+    <cond slot='OLT1L.prep' text='/^(to|between)$/'/>
+    <map slot='SLTL' arg='Arg0' role='sender'/>
+    <map slot='OLT1L' arg='Arg1' role='sent'/>
+    <map slot='OLT2L' arg='Arg2bc' role='population'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='sender'/>
+    <map slot='OLT1L' arg='Arg1' role='sent'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP_PP'>
+  <roleset name='transmit.01' sense='send (electronically)'>
+   <mapping>
+    <example>The virus is not transmitted to humans through properly prepared food</example>
+    <comment>Parse error - should be passive</comment>
+    <cond slot='OLT1L.prep' text='/^(to|between)$/'/>
+    <cond slot='OLT2L.prep' text='/^(through|by)$/'/>
+    <map slot='SLTL' arg='Arg1' role='sent'/>
+    <map slot='OLT1L' arg='Arg2bc' role='population'/>
+    <map slot='OLT2L' arg='Arg3bc' role='means'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT1L.prep' text='/^(to|between)$/'/>
+    <map slot='SLTL' arg='Arg1' role='sent'/>
+    <map slot='OLT1L' arg='Arg2bc' role='population'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT1L.prep' text='/^(to|between)$/'/>
+    <map slot='SLTL' arg='Arg1' role='sent'/>
+    <map slot='OLT1L' arg='Arg2bc' role='population'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT1L.prep' text='/^(through|by)$/'/>
+    <map slot='SLTL' arg='Arg1' role='sent'/>
+    <map slot='OLT1L' arg='Arg3bc' role='means'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg1' role='sent'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM1' role='adjunct'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM2' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='test'>
+ <scf scf='*' label='AP'>
+  <roleset name='test.01' sense='check (for), examine'>
+   <mapping>
+    <example>some of the birds had tested positive for H5N1</example>
+    <map slot='SLTL' arg='Arg1' role='examined'/>
+    <map slot='OLT1L' arg='Arg3bc' role='result'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP'>
+  <roleset name='test.01' sense='check (for), examine'>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='examiner'/>
+    <map slot='OLT1L' arg='Arg1' role='examined'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_AP'>
+  <roleset name='test.01' sense='check (for), examine'>
+   <mapping>
+    <example>An Egyptian woman tested positive for H5N1</example>
+    <map slot='SLTL' arg='Arg0' role='examiner'/>
+    <map slot='OLT1L' arg='Arg1' role='examined'/>
+    <map slot='OLT2L' arg='Arg3bc' role='result'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='test.01' sense='check (for), examine'>
+   <mapping>
+    <cond slot='OLT2L.prep' text='for'/>
+    <example>neighbors are being tested for bird flu</example>
+    <map slot='SLTL' arg='Arg0' role='examiner'/>
+    <map slot='OLT1L' arg='Arg1' role='examined'/>
+    <map slot='OLT2L' arg='Arg2' role='in search of, for what'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='examiner'/>
+    <map slot='OLT1L' arg='Arg1' role='examined'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='PP'>
+  <roleset name='test.01' sense='check (for), examine'>
+   <mapping>
+    <example>since its inception has tested more than 100,000 animals</example>
+    <cond slot='OLT1L.prep' text='more'/>
+    <map slot='SLTL' arg='Arg0' role='examiner'/>
+    <map slot='OLT1L' arg='Arg1' role='examined'/>
+   </mapping>
+   <mapping>
+    <cond slot='OLT1L.prep' text='for'/>
+    <map slot='SLTL' arg='Arg0' role='examiner'/>
+    <map slot='OLT1L' arg='Arg2' role='in search of, for what'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='examiner'/>
+    <map slot='OLT1L.prep OLT1L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+<verb-map verb='treat'>
+ <scf scf='*' label='NP'>
+  <roleset name='treat.03' sense='medical treatment'>
+   <mapping>
+    <example>woman died of bird flu after being treated at a hospital</example>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L' arg='Arg1' role='patient'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_NP'>
+  <roleset name='treat.03' sense='medical treatment'>
+   <mapping>
+    <example>doctors were treating 9 people with bird flu symptoms</example>
+    <comment>Parse error, '9' and 'people' in two slots</comment>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L OLT2L' arg='Arg1' role='patient'/>
+   </mapping>
+  </roleset>
+ </scf>
+ <scf scf='*' label='NP_PP'>
+  <roleset name='treat.02' sense='buy for someone'>
+  <mapping>
+    <example>A 19-year-old Chinese soldier is being treated for H5N1</example>
+    <cond slot='OLT2L.prep' text='for'/>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L' arg='Arg1' role='patient'/>
+    <map slot='OLT2L' arg='Arg2' role='illness or injury'/>
+   </mapping>
+   <mapping>
+    <example>David Blaine will be treated by doctors inside his water-filled sphere</example>
+    <cond slot='OLT2L.prep' text='by'/>
+    <map slot='OLT2L' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L' arg='Arg1' role='patient'/>
+   </mapping>
+   <mapping>
+    <map slot='SLTL' arg='Arg0' role='doctor'/>
+    <map slot='OLT1L' arg='Arg1' role='patient'/>
+    <map slot='OLT2L.prep OLT2L' arg='ArgM' role='adjunct'/>
+   </mapping>
+  </roleset>
+ </scf>
+</verb-map>
+</top>

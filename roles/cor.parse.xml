@@ -1,0 +1,495 @@
+<text id="1">
+<raw>
+Boy dies
+</raw>
+<tokens id='1'>
+ <tok id='1.1' tag='NP1'>Boy</tok>
+ <tok id='1.2' tag='VVZ'>die+s</tok>
+</tokens>
+<rels id='1'>
+ <gr rel='ncsubj'>
+  <arg id='1.2' tag='VVZ'>die+s</arg>
+  <arg id='1.1' tag='NP1'>Boy</arg>
+  <arg>_</arg>
+ </gr>
+</rels>
+<lex id='1'>
+<scf id='1' verb='die' class='22' label='NONE'>
+ <target id='1.2'>die+s</target>
+ <slot name='SLTL' id='1.1'>Boy</slot>
+</scf>
+</lex>
+</text>
+<text id="2">
+<raw>
+Indonesia has the highest human death toll from bird flu of any nation, and on Wednesday that number grew to 58 when a boy, from Tangerang near Jakarta, died, said the head of the Indonesian health ministry's bird flu center Runizar Ruesin.
+</raw>
+<tokens id='2'>
+ <tok id='2.1' tag='NP1'>Indonesia</tok>
+ <tok id='2.2' tag='VHZ'>have+s</tok>
+ <tok id='2.3' tag='AT'>the</tok>
+ <tok id='2.4' tag='JJT'>highest</tok>
+ <tok id='2.5' tag='JJ'>human</tok>
+ <tok id='2.6' tag='NN1'>death</tok>
+ <tok id='2.7' tag='NN1'>toll</tok>
+ <tok id='2.8' tag='II'>from</tok>
+ <tok id='2.9' tag='NN1'>bird</tok>
+ <tok id='2.10' tag='NN1'>flu</tok>
+ <tok id='2.11' tag='IO'>of</tok>
+ <tok id='2.12' tag='DD'>any</tok>
+ <tok id='2.13' tag='NN1'>nation</tok>
+ <tok id='2.14' tag=','>,</tok>
+ <tok id='2.15' tag='CC'>and</tok>
+ <tok id='2.16' tag='II'>on</tok>
+ <tok id='2.17' tag='NPD1'>Wednesday</tok>
+ <tok id='2.18' tag='CST'>that</tok>
+ <tok id='2.19' tag='NN1'>number</tok>
+ <tok id='2.20' tag='VVD'>grow+ed</tok>
+ <tok id='2.21' tag='II'>to</tok>
+ <tok id='2.22' tag='MC'>58</tok>
+ <tok id='2.23' tag='CS'>when</tok>
+ <tok id='2.24' tag='AT1'>a</tok>
+ <tok id='2.25' tag='NN1'>boy</tok>
+ <tok id='2.26' tag=','>,</tok>
+ <tok id='2.27' tag='II'>from</tok>
+ <tok id='2.28' tag='NP1'>Tangerang</tok>
+ <tok id='2.29' tag='II'>near</tok>
+ <tok id='2.30' tag='NP1'>Jakarta</tok>
+ <tok id='2.31' tag=','>,</tok>
+ <tok id='2.32' tag='VVD'>die+ed</tok>
+ <tok id='2.33' tag=','>,</tok>
+ <tok id='2.34' tag='VVD'>say+ed</tok>
+ <tok id='2.35' tag='AT'>the</tok>
+ <tok id='2.36' tag='NN1'>head</tok>
+ <tok id='2.37' tag='IO'>of</tok>
+ <tok id='2.38' tag='AT'>the</tok>
+ <tok id='2.39' tag='JJ'>Indonesian</tok>
+ <tok id='2.40' tag='NN1'>health</tok>
+ <tok id='2.41' tag='NN1'>ministry</tok>
+ <tok id='2.42' tag='$'>'s+</tok>
+ <tok id='2.43' tag='NN1'>bird</tok>
+ <tok id='2.44' tag='NN1'>flu</tok>
+ <tok id='2.45' tag='NN1'>center</tok>
+ <tok id='2.46' tag='NP1'>Runizar</tok>
+ <tok id='2.47' tag='NP1'>Ruesin</tok>
+</tokens>
+<rels id='2'>
+ <gr rel='ncsubj'>
+  <arg id='2.20' tag='VVD'>grow+ed</arg>
+  <arg id='2.19' tag='NN1'>number</arg>
+  <arg>_</arg>
+ </gr>
+ <gr rel='iobj'>
+  <arg id='2.21' tag='II'>to</arg>
+  <arg id='2.20' tag='VVD'>grow+ed</arg>
+  <arg id='2.22' tag='MC'>58</arg>
+ </gr>
+ <gr rel='ccomp'>
+  <arg id='2.23' tag='CS'>when</arg>
+  <arg id='2.20' tag='VVD'>grow+ed</arg>
+  <arg id='2.34' tag='VVD'>say+ed</arg>
+ </gr>
+ <gr rel='ncsubj'>
+  <arg id='2.34' tag='VVD'>say+ed</arg>
+  <arg id='2.30' tag='NP1'>Jakarta</arg>
+  <arg>_</arg>
+ </gr>
+ <gr rel='dobj'>
+  <arg id='2.34' tag='VVD'>say+ed</arg>
+  <arg id='2.36' tag='NN1'>head</arg>
+  <arg>_</arg>
+ </gr>
+ <gr rel='iobj'>
+  <arg id='2.37' tag='IO'>of</arg>
+  <arg id='2.34' tag='VVD'>say+ed</arg>
+  <arg id='2.45' tag='NN1'>center</arg>
+ </gr>
+ <gr rel='ncsubj'>
+  <arg id='2.2' tag='VHZ'>have+s</arg>
+  <arg id='2.1' tag='NP1'>Indonesia</arg>
+  <arg>_</arg>
+ </gr>
+ <gr rel='dobj'>
+  <arg id='2.2' tag='VHZ'>have+s</arg>
+  <arg id='2.7' tag='NN1'>toll</arg>
+  <arg>_</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.7' tag='NN1'>toll</arg>
+  <arg id='2.6' tag='NN1'>death</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.7' tag='NN1'>toll</arg>
+  <arg id='2.5' tag='JJ'>human</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.7' tag='NN1'>toll</arg>
+  <arg id='2.4' tag='JJT'>highest</arg>
+ </gr>
+ <gr rel='detmod'>
+  <arg>_</arg>
+  <arg id='2.7' tag='NN1'>toll</arg>
+  <arg id='2.3' tag='AT'>the</arg>
+ </gr>
+ <gr rel='detmod'>
+  <arg>_</arg>
+  <arg id='2.13' tag='NN1'>nation</arg>
+  <arg id='2.12' tag='DD'>any</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='2.11' tag='IO'>of</arg>
+  <arg id='2.10' tag='NN1'>flu</arg>
+  <arg id='2.13' tag='NN1'>nation</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.10' tag='NN1'>flu</arg>
+  <arg id='2.9' tag='NN1'>bird</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='2.8' tag='II'>from</arg>
+  <arg id='2.2' tag='VHZ'>have+s</arg>
+  <arg id='2.10' tag='NN1'>flu</arg>
+ </gr>
+ <gr rel='detmod'>
+  <arg>_</arg>
+  <arg id='2.25' tag='NN1'>boy</arg>
+  <arg id='2.24' tag='AT1'>a</arg>
+ </gr>
+ <gr rel='cmod'>
+  <arg>_</arg>
+  <arg id='2.30' tag='NP1'>Jakarta</arg>
+  <arg id='2.32' tag='VVD'>die+ed</arg>
+ </gr>
+ <gr rel='detmod'>
+  <arg>_</arg>
+  <arg id='2.36' tag='NN1'>head</arg>
+  <arg id='2.35' tag='AT'>the</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.41' tag='NN1'>ministry</arg>
+  <arg id='2.40' tag='NN1'>health</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.41' tag='NN1'>ministry</arg>
+  <arg id='2.39' tag='JJ'>Indonesian</arg>
+ </gr>
+ <gr rel='detmod'>
+  <arg>_</arg>
+  <arg id='2.41' tag='NN1'>ministry</arg>
+  <arg id='2.38' tag='AT'>the</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.45' tag='NN1'>center</arg>
+  <arg id='2.44' tag='NN1'>flu</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.45' tag='NN1'>center</arg>
+  <arg id='2.43' tag='NN1'>bird</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>poss</arg>
+  <arg id='2.45' tag='NN1'>center</arg>
+  <arg id='2.41' tag='NN1'>ministry</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.34' tag='VVD'>say+ed</arg>
+  <arg id='2.46' tag='NP1'>Runizar</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.34' tag='VVD'>say+ed</arg>
+  <arg id='2.47' tag='NP1'>Ruesin</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.34' tag='VVD'>say+ed</arg>
+  <arg id='2.29' tag='II'>near</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='2.27' tag='II'>from</arg>
+  <arg id='2.34' tag='VVD'>say+ed</arg>
+  <arg id='2.28' tag='NP1'>Tangerang</arg>
+ </gr>
+ <gr rel='cmod'>
+  <arg>_</arg>
+  <arg id='2.25' tag='NN1'>boy</arg>
+  <arg id='2.34' tag='VVD'>say+ed</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='2.34' tag='VVD'>say+ed</arg>
+  <arg id='2.23' tag='CS'>when</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='2.16' tag='II'>on</arg>
+  <arg id='2.20' tag='VVD'>grow+ed</arg>
+  <arg id='2.17' tag='NPD1'>Wednesday</arg>
+ </gr>
+ <gr rel='conj'>
+  <arg>_</arg>
+  <arg id='2.2' tag='VHZ'>have+s</arg>
+  <arg id='2.20' tag='VVD'>grow+ed</arg>
+ </gr>
+</rels>
+<lex id='2'>
+<scf id='1' verb='die' class='22' label='NONE'>
+ <target id='2.32'>die+ed</target>
+</scf>
+<scf id='2' verb='say' class='50' label='NP_PPOF'>
+ <target id='2.34'>say+ed</target>
+ <slot name='SLTL' id='2.30'>Jakarta</slot>
+ <slot name='OLT1L' id='2.36'>head</slot>
+ <slot name='OLT2L' id='2.45'>center</slot>
+</scf>
+<scf id='3' verb='grow' class='89' label='PP_PP'>
+ <target id='2.20'>grow+ed</target>
+ <slot name='SLTL' id='2.19'>number</slot>
+ <slot name='OLT1L' id='2.22'>58</slot>
+ <slot name='OLT2L' id='2.34'>say+ed</slot>
+</scf>
+</lex>
+</text>
+<text id="21">
+<raw>
+The World Health Organization said that by Nov. 13, there had been 258 cases of human infection of the H5N1 strain since 2003, killing 153 people. Many of the victims were Asians, with 98 deaths in Vietnam and Indonesia, WHO said.
+</raw>
+<tokens id='21.1'>
+ <tok id='21.1.1' tag='AT'>The</tok>
+ <tok id='21.1.2' tag='NN1'>World</tok>
+ <tok id='21.1.3' tag='NN1'>Health</tok>
+ <tok id='21.1.4' tag='NNJ1'>Organization</tok>
+ <tok id='21.1.5' tag='VVD'>say+ed</tok>
+ <tok id='21.1.6' tag='CST'>that</tok>
+ <tok id='21.1.7' tag='II'>by</tok>
+ <tok id='21.1.8' tag='NPM1'>Nov.</tok>
+ <tok id='21.1.9' tag='MC'>13</tok>
+ <tok id='21.1.10' tag=','>,</tok>
+ <tok id='21.1.11' tag='EX'>there</tok>
+ <tok id='21.1.12' tag='VHD'>have+ed</tok>
+ <tok id='21.1.13' tag='VBN'>be+en</tok>
+ <tok id='21.1.14' tag='MC'>258</tok>
+ <tok id='21.1.15' tag='NN2'>case+s</tok>
+ <tok id='21.1.16' tag='IO'>of</tok>
+ <tok id='21.1.17' tag='JJ'>human</tok>
+ <tok id='21.1.18' tag='NN1'>infection</tok>
+ <tok id='21.1.19' tag='IO'>of</tok>
+ <tok id='21.1.20' tag='AT'>the</tok>
+ <tok id='21.1.21' tag='NN1'>H5N1</tok>
+ <tok id='21.1.22' tag='NN1'>strain</tok>
+ <tok id='21.1.23' tag='ICS'>since</tok>
+ <tok id='21.1.24' tag='MC'>2003</tok>
+ <tok id='21.1.25' tag=','>,</tok>
+ <tok id='21.1.26' tag='VVG'>kill+ing</tok>
+ <tok id='21.1.27' tag='MC'>153</tok>
+ <tok id='21.1.28' tag='NN2'>people</tok>
+</tokens>
+<rels id='21.1'>
+ <gr rel='csubj'>
+  <arg id='21.1.26' tag='VVG'>kill+ing</arg>
+  <arg id='21.1.5' tag='VVD'>say+ed</arg>
+  <arg>_</arg>
+ </gr>
+ <gr rel='dobj'>
+  <arg id='21.1.26' tag='VVG'>kill+ing</arg>
+  <arg id='21.1.27' tag='MC'>153</arg>
+  <arg>_</arg>
+ </gr>
+ <gr rel='obj2'>
+  <arg id='21.1.26' tag='VVG'>kill+ing</arg>
+  <arg id='21.1.28' tag='NN2'>people</arg>
+ </gr>
+ <gr rel='ncsubj'>
+  <arg id='21.1.5' tag='VVD'>say+ed</arg>
+  <arg id='21.1.4' tag='NNJ1'>Organization</arg>
+  <arg>_</arg>
+ </gr>
+ <gr rel='clausal'>
+  <arg id='21.1.5' tag='VVD'>say+ed</arg>
+  <arg id='21.1.13' tag='VBN'>be+en</arg>
+ </gr>
+ <gr rel='ncsubj'>
+  <arg id='21.1.13' tag='VBN'>be+en</arg>
+  <arg id='21.1.11' tag='EX'>there</arg>
+  <arg>_</arg>
+ </gr>
+ <gr rel='xcomp'>
+  <arg>_</arg>
+  <arg id='21.1.13' tag='VBN'>be+en</arg>
+  <arg id='21.1.15' tag='NN2'>case+s</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='21.1.4' tag='NNJ1'>Organization</arg>
+  <arg id='21.1.3' tag='NN1'>Health</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='21.1.4' tag='NNJ1'>Organization</arg>
+  <arg id='21.1.2' tag='NN1'>World</arg>
+ </gr>
+ <gr rel='detmod'>
+  <arg>_</arg>
+  <arg id='21.1.4' tag='NNJ1'>Organization</arg>
+  <arg id='21.1.1' tag='AT'>The</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='21.1.8' tag='NPM1'>Nov.</arg>
+  <arg id='21.1.9' tag='MC'>13</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='21.1.22' tag='NN1'>strain</arg>
+  <arg id='21.1.21' tag='NN1'>H5N1</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='21.1.23' tag='ICS'>since</arg>
+  <arg id='21.1.22' tag='NN1'>strain</arg>
+  <arg id='21.1.24' tag='MC'>2003</arg>
+ </gr>
+ <gr rel='detmod'>
+  <arg>_</arg>
+  <arg id='21.1.22' tag='NN1'>strain</arg>
+  <arg id='21.1.20' tag='AT'>the</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='21.1.19' tag='IO'>of</arg>
+  <arg id='21.1.18' tag='NN1'>infection</arg>
+  <arg id='21.1.22' tag='NN1'>strain</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='21.1.18' tag='NN1'>infection</arg>
+  <arg id='21.1.17' tag='JJ'>human</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='21.1.16' tag='IO'>of</arg>
+  <arg id='21.1.15' tag='NN2'>case+s</arg>
+  <arg id='21.1.18' tag='NN1'>infection</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='21.1.15' tag='NN2'>case+s</arg>
+  <arg id='21.1.14' tag='MC'>258</arg>
+ </gr>
+ <gr rel='aux'>
+  <arg>_</arg>
+  <arg id='21.1.13' tag='VBN'>be+en</arg>
+  <arg id='21.1.12' tag='VHD'>have+ed</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='21.1.7' tag='II'>by</arg>
+  <arg id='21.1.13' tag='VBN'>be+en</arg>
+  <arg id='21.1.8' tag='NPM1'>Nov.</arg>
+ </gr>
+ <gr rel='mod'>
+  <arg>_</arg>
+  <arg id='21.1.5' tag='VVD'>say+ed</arg>
+  <arg id='21.1.26' tag='VVG'>kill+ing</arg>
+ </gr>
+</rels>
+<lex id='21.1'>
+<scf id='1' verb='say' class='104' label='SCOMP'>
+ <target id='21.1.5'>say+ed</target>
+ <slot name='SLTL' id='21.1.4'>Organization</slot>
+ <slot name='OLT1L' id='21.1.13'>be+en</slot>
+</scf>
+<scf id='2' verb='kill' class='37' label='NP_NP'>
+ <target id='21.1.26'>kill+ing</target>
+ <slot name='SLTL' id='21.1.5'>say+ed</slot>
+ <slot name='OLT1L' id='21.1.27'>153</slot>
+ <slot name='OLT2L' id='21.1.28'>people</slot>
+</scf>
+</lex>
+<tokens id='21.2'>
+ <tok id='21.2.1' tag='DA2'>Many</tok>
+ <tok id='21.2.2' tag='IO'>of</tok>
+ <tok id='21.2.3' tag='AT'>the</tok>
+ <tok id='21.2.4' tag='NN2'>victim+s</tok>
+ <tok id='21.2.5' tag='VBDR'>be+ed</tok>
+ <tok id='21.2.6' tag='NN2'>Asian+s</tok>
+ <tok id='21.2.7' tag=','>,</tok>
+ <tok id='21.2.8' tag='IW'>with</tok>
+ <tok id='21.2.9' tag='MC'>98</tok>
+ <tok id='21.2.10' tag='NN2'>death+s</tok>
+ <tok id='21.2.11' tag='II'>in</tok>
+ <tok id='21.2.12' tag='NP1'>Vietnam</tok>
+ <tok id='21.2.13' tag='CC'>and</tok>
+ <tok id='21.2.14' tag='NP1'>Indonesia</tok>
+ <tok id='21.2.15' tag=','>,</tok>
+ <tok id='21.2.16' tag='PNQS'>WHO</tok>
+ <tok id='21.2.17' tag='VVD'>say+ed</tok>
+</tokens>
+<rels id='21.2'>
+ <gr rel='ncsubj'>
+  <arg id='21.2.17' tag='VVD'>say+ed</arg>
+  <arg id='21.2.16' tag='PNQS'>WHO</arg>
+  <arg>_</arg>
+ </gr>
+ <gr rel='detmod'>
+  <arg>_</arg>
+  <arg id='21.2.4' tag='NN2'>victim+s</arg>
+  <arg id='21.2.3' tag='AT'>the</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='21.2.2' tag='IO'>of</arg>
+  <arg id='21.2.1' tag='DA2'>Many</arg>
+  <arg id='21.2.4' tag='NN2'>victim+s</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='21.2.10' tag='NN2'>death+s</arg>
+  <arg id='21.2.9' tag='MC'>98</arg>
+ </gr>
+ <gr rel='conj'>
+  <arg>_</arg>
+  <arg id='21.2.12' tag='NP1'>Vietnam</arg>
+  <arg id='21.2.14' tag='NP1'>Indonesia</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='21.2.11' tag='II'>in</arg>
+  <arg id='21.2.17' tag='VVD'>say+ed</arg>
+  <arg id='21.2.12' tag='NP1'>Vietnam</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='21.2.11' tag='II'>in</arg>
+  <arg id='21.2.17' tag='VVD'>say+ed</arg>
+  <arg id='21.2.14' tag='NP1'>Indonesia</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg id='21.2.8' tag='IW'>with</arg>
+  <arg id='21.2.17' tag='VVD'>say+ed</arg>
+  <arg id='21.2.10' tag='NN2'>death+s</arg>
+ </gr>
+ <gr rel='cmod'>
+  <arg>_</arg>
+  <arg id='21.2.6' tag='NN2'>Asian+s</arg>
+  <arg id='21.2.17' tag='VVD'>say+ed</arg>
+ </gr>
+ <gr rel='aux'>
+  <arg>_</arg>
+  <arg id='21.2.17' tag='VVD'>say+ed</arg>
+  <arg id='21.2.5' tag='VBDR'>be+ed</arg>
+ </gr>
+ <gr rel='ncmod'>
+  <arg>_</arg>
+  <arg id='21.2.17' tag='VVD'>say+ed</arg>
+  <arg id='21.2.1' tag='DA2'>Many</arg>
+ </gr>
+</rels>
+<lex id='21.2'>
+<scf id='1' verb='say' class='22' label='NONE'>
+ <target id='21.2.17'>say+ed</target>
+ <slot name='SLTL' id='21.2.16'>WHO</slot>
+</scf>
+</lex>
+</text>
